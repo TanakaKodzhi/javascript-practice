@@ -6,7 +6,6 @@ const user1 = {
   },
   wallet: { balance: 500 }
 };
-
 // 2. Частичный объект (нет username, нет text, на балансе 0)
 const user2 = {
   message: {
@@ -14,10 +13,8 @@ const user2 = {
   },
   wallet: { balance: 0 }
 };
-
 // 3. Битый объект (вообще пустой)
 const user3 = {};
-
 
 // ТВОЯ ЗАДАЧА: дописать 3 строчки ниже
 
@@ -40,3 +37,8 @@ const text3 = user3?.message?.text ?? "Нет текста"
 console.log("Юзер 1:", nick1, money1, text1);
 console.log("Юзер 2:", nick2, money2, text2);
 console.log("Юзер 3:", nick3, money3, text3);
+
+// Результат:
+Юзер 1: artur_dev 500 Привет!
+Юзер 2: Ник не указан 0 Нет текста
+Юзер 3: Ник не указан 0 Нет текста
