@@ -40,6 +40,6 @@
 > **Важно!** При вложенной деструктуризации страховку `= {}` нужно ставить **после каждой** открытой вложенной коробки (`ключ: { ... } = {}`). Иначе при отсутствии внешнего объекта скрипт упадёт ещё до проверки значения по умолчанию.
 
 **Боевая формула для n8n:**
-```javascript
-const { order_id: id, buyer: { first_name: clientName, delivery: { city = "Самовывоз" } = {} } = {} 
-} = item.json;
+>```javascript
+>const { order_id: id, buyer: { first_name: clientName, delivery: { city = "Самовывоз" } = {} } = {} 
+>} = item.json
