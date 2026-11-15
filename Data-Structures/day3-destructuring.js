@@ -11,19 +11,16 @@ const player = {
   const { first_name, goals } = player;
   console.log(first_name, goals);
 }
-
 // Пример 2 Переименование (если имя ключа кривое)
 {
   const { first_name: name, goals } = player;
   console.log(name, goals);
 } 
-
 // Пример 3 Значение по умолчанию (если поля может не быть)
 {
     const {first_name, goals, redCard = 0 } = player
     console.log(redCard) 
 }
-
 // Пример 4 Вложенный объект (Матрёшка)
 {
     const player = {
@@ -37,7 +34,6 @@ const player = {
     const {club_now: { title = "Без клуба" } } = player 
     console.log(title)
 }
-
 // Пример 4A Вложенный объект (Матрёшка) СО СТРАХОВКОЙ ={}
 {
 const player = {
@@ -50,37 +46,36 @@ console.log(title)
 }
 
 
-
-// Задание 5: Боевая имитация n8n (режим одного элемента, без .map)
 {
-  // Вот так выглядит ОДИН элемент, который прилетает в ноду Code
-  const item = {
-    json: {
-      order_id: 772,
-      buyer: {
-        first_name: "Рома"
-        // Поля delivery нет — клиент выбрал самовывоз
+const paymentWebhook = {
+    event: "payment.succeeded",
+    payload: {
+      payment_id: "pay_99812",
+      amount: {
+        total: 499,
+        currency: "RUB"
+      },
+      customer: {
+        email: "buyer@mail.ru"
+        // Внимание: объекта promo (промокод) и объекта referral (реферал) тут вообще нет!
       }
     }
   };
-  // ТВОЯ ЗАДАЧА:
-  // Напиши ОДНУ строчку деструктуризации объекта item.json (справа должно быть = item.json),
-  // чтобы достать 3 переменные:
-  // 1. id (переименовать из order_id)
-  // 2. clientName (переименовать из buyer.first_name)
-  // 3. city (достать из buyer.delivery.city — со страховкой = {} для delivery и значением "Самовывоз" по умолчанию)
 
-  // Пиши свою строчку тут:
- const {order_id: id, buyer: {first_name: clientName, delivery: {city = "Самовывоз"} = {}} = {}} = item.json
+  // ЗАДАЧА:
+  // Напиши ОДНУ строчку деструктуризации объекта paymentWebhook (= paymentWebhook),
+  // чтобы достать 5 переменных:
+  // 1. paymentId (переименовать из payload.payment_id, со страховкой = {} для payload)
+  // 2. sum (переименовать из payload.amount.total, со страховкой = {} для amount и значением 0 по умолчанию)
+  // 3. email (из payload.customer.email, со страховкой = {} для customer)
+  // 4. promoCode (переименовать из payload.customer.promo.code — со страховкой = {} для promo и значением "NO_PROMO" по умолчанию)
+  // 5. partnerId (переименовать из payload.referral.partner_id — со страховкой = {} для referral и значением null по умолчанию)
 
-  // А дальше мы просто собираем ответ для следующей ноды n8n:
-  const outputForN8n = {
-    json: {
-      id,
-      clientName,
-      city
-    }
-  };
+  // Пиши строчку тут:
+const {payload: {payment_id: paymentId, amount: {total: sum = 0} = {}, customer: {promo: {code: promoCode = "NO_PROMO"} 
+= {}, email} = {}, referral: {parther_id: partnerId = null} = {}}= {}} = paymentWebhook
 
-  console.log(outputForN8n);
+  console.log({paymentId, sum, email, promoCode, partnerId})
 }
+
+
