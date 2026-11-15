@@ -3,26 +3,18 @@ const player = {
   goals: 5,
   assists: 3
 }
-
 // Главное правило деструктуризации: Читаем СПРАВА на ЛЕВО
 
 // Пример 1 Как правильно писать деструктуризацию (Сначала пишем скелет)
-{
   const { first_name, goals } = player;
-  console.log(first_name, goals);
-}
+
 // Пример 2 Переименование (если имя ключа кривое)
-{
   const { first_name: name, goals } = player;
-  console.log(name, goals);
-} 
+ 
 // Пример 3 Значение по умолчанию (если поля может не быть)
-{
-    const {first_name, goals, redCard = 0 } = player
-    console.log(redCard) 
-}
+  const {first_name, goals, redCard = 0 } = player
+
 // Пример 4 Вложенный объект (Матрёшка)
-{
     const player = {
         first_name: "Tanaka",
         goals: 5, 
@@ -32,20 +24,17 @@ const player = {
         }
     }
     const {club_now: { title = "Без клуба" } } = player 
-    console.log(title)
-}
+
 // Пример 4A Вложенный объект (Матрёшка) СО СТРАХОВКОЙ ={}
-{
+
 const player = {
     first_name: "Vika",
     goals: 9,
-
 }
 const { club_now: { title = "Без клуба" } = {} } = player
-console.log(title)
-}
 
 
+// Закрепление
 {
 const paymentWebhook = {
     event: "payment.succeeded",
@@ -61,7 +50,6 @@ const paymentWebhook = {
       }
     }
   };
-
   // ЗАДАЧА:
   // Напиши ОДНУ строчку деструктуризации объекта paymentWebhook (= paymentWebhook),
   // чтобы достать 5 переменных:
