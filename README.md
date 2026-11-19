@@ -7,8 +7,8 @@
 | Раздел | Описание и ключевые темы |
 | :--- | :--- |
 | **[02-objects-and-syntax](02-objects-and-syntax)** | Работа с объектами без мутаций: оператор `...` (Spread), безопасные цепочки `?.`, запасные значения `??` и деструктуризация. |
-| **[03-arrays-and-methods](./03-arrays-and-methods)** | Методы перебора и трансформации списков: фильтрация `.filter()`, маппинг `.map()` и цепочки вызовов (Method Chaining). |
-| **[04-n8n-code-templates](./04-n8n-code-templates)** | Готовые сниппеты для ноды **Code** в n8n: парсинг вебхуков (*Run Once for Each Item*) и пакетная обработка списков через `$input.all()` (*Run Once for All Items*). |
+| **[03-arrays-and-methods](03-arrays-and-methods)** | Методы перебора и трансформации списков: фильтрация `.filter()`, маппинг `.map()` и цепочки вызовов (Method Chaining). |
+| **[04-n8n-code-templates](04-n8n-code-templates)** | Готовые сниппеты для ноды **Code** в n8n: парсинг вебхуков (*Run Once for Each Item*) и пакетная обработка списков через `$input.all()` (*Run Once for All Items*). |
 
 ---
 
