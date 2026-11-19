@@ -6,7 +6,7 @@
 
 * **[01-each-item-telegram-webhook.js](01-each-item-telegram-webhook.js) - парсер входящего сообщения Telegram (режим *Run Once for Each Item*).**
 * **[02-all-items-orders-filter-map.js](02-all-items-orders-filter-map.js) - фильтрация и нормализация списка заказов через `$input.all()`, `.filter()` и `.map()` (режим *Run Once for All Items*).**
-* **[03-all-items-catalog-chaining.js](03-all-items-catalog-chaining.js)  конвейерная фильтрация каталога по наличию/цене и расчёт итоговой стоимости со скидкой через chaining `.filter().map()` (режим *Run Once for All Items*).**
+* **[03-all-items-catalog-chaining.js](03-all-items-catalog-chaining.js) - конвейерная фильтрация каталога по наличию/цене и расчёт итоговой стоимости со скидкой через chaining `.filter().map()` (режим *Run Once for All Items*).**
 
 ---
 
