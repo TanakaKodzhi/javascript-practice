@@ -27,23 +27,19 @@ const summary = orders.reduce((acc, item) => {
   if (order?.delivery_status === "delivered") {
     acc.deliveredWeight += (order?.cargo?.weight_kg ?? 0);
   }
-
   // Условие 2: Считаем стоимость возвратов
   if (order?.delivery_status === "returned") {
     acc.returnedCost += (order?.cargo?.cost ?? 0);
   }
-
   // Условие 3: Считаем количество (штуки) доставленных оптовых заказов
   if (order?.client?.is_wholesale === true && order?.delivery_status === "delivered") {
     acc.wholesaleDeliveredCount += 1;
   }
-
   // Условие 4: Ловим заказы без веса (== null ловит сразу и null, и undefined)
   // .push() — кладёт новый элемент в конец массива (НЕ использовать += для массивов!)
   if (order?.cargo?.weight_kg == null) {
     acc.corruptedOrders.push(order?.order_id || "order isn't detected");
   }
-
   // Передаём обновлённый объект на следующий круг цикла
   return acc;
 }, {
